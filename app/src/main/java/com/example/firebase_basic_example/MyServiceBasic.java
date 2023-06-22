@@ -32,6 +32,8 @@ public class MyServiceBasic extends FirebaseMessagingService {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setContentTitle(remoteMessage.getNotification().getTitle())
                     .setContentText(remoteMessage.getNotification().getBody())
+                    .setSmallIcon(R.drawable.ic_notification) // Set your small icon resource ID here
+
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
