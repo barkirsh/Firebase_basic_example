@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Firebase_basic_example</string>
+    <string name="app_name">Firebase Basic Example</string>
+    <string name="default_notification_channel_id">channel_id</string>
 </resources>

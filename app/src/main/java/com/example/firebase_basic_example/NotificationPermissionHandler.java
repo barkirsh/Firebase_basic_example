@@ -1,13 +1,11 @@
 package com.example.firebase_basic_example;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.Manifest;
-import android.content.pm.PackageManager;
-
 
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
@@ -23,17 +21,7 @@ public class NotificationPermissionHandler {
 
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     public void checkAndRequestPermission() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
-//                // FCM SDK (and your app) can post notifications.
-//            } else if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.POST_NOTIFICATIONS)) {
-//
-//            } else {
-//                // Directly ask for the permission
-//                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST_CODE);
-//            }
-//        }
-        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // Permission not granted
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.POST_NOTIFICATIONS)) {
                 // Show rationale dialog explaining why the permission is needed
@@ -61,17 +49,5 @@ public class NotificationPermissionHandler {
                 ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST_CODE);
             }
         }
-
     }
-
 }
-//    if(ActivityCompat.checkSelfPermission(activity,Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED)
-//
-//    {
-//        /// NOT GRANTED
-//        if(ActivityCompat.shouldShowRequestPermissionRationale(activity,Manifest.permission.POST_NOTIFICATION)) {
-//             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-
-//        }
-//    }
-
